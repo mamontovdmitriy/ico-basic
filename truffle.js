@@ -1,6 +1,6 @@
 const HDWalletProvider = require('truffle-hdwallet-provider');
 
-const mnemonic = require('./mnemonic');
+const {mnemonic, infura} = require('./mnemonic');
 
 module.exports = {
     // See <http://truffleframework.com/docs/advanced/configuration>
@@ -28,8 +28,6 @@ module.exports = {
             port: 8545,
             network_id: "*", // match any network
             gas: 5000000
-            // , gas: 6700000
-            // , gasPrice: 65000000000
         },
         development: {
             host: "127.0.0.1",
@@ -40,14 +38,18 @@ module.exports = {
         },
         ropsten: {
             provider: function() {
-                return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/oS2Sr4bCTjivV6puog3L");
+                return new HDWalletProvider(mnemonic, infura);
             },
             network_id: 3,
             gas: 6700000,
             gasPrice: 21000000000
-            // gas: 8500000
-            // gasPrice: 65000000000
         },
+        test: {
+            host: "127.0.0.1",
+            port: 8545,
+            network_id: "*", // match any network
+            gas: 5000000
+        }
         // test: {
         //     provider: function() {
         //         return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/");

@@ -21,7 +21,8 @@ contract('Crowdsale', (accounts) => {
             2000,
             `Balance of ${buyer_2000} is not 2000 tokens!`);
 
-        await crowdsale.sendTransaction({from: buyer_3000, value: web3.toWei(3, 'ether')});
+        await crowdsale.sendTransaction({from: buyer_3000, value: web3.toWei(1, 'ether')});
+        await crowdsale.sendTransaction({from: buyer_3000, value: web3.toWei(2, 'ether')});
         assert.equal(
             web3.fromWei((await token.balanceOf.call(buyer_3000)).valueOf()),
             3000,
