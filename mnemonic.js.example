@@ -1,0 +1,4 @@
+const mnemonic = "!!! INSERT YOUR MNEMONIC HERE !!!";
+const infura = "!!! INSERT YOUR INFURA's URL HERE !!!";
+
+module.exports = {mnemonic, infura};
